@@ -9,13 +9,17 @@
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.anonymous.expoapp",
+      "googleServicesFile": "./GoogleService-Info.plist"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.anonymous.expoapp",
+      "googleServicesFile": "google-services.json"
     },
     "web": {
       "bundler": "metro",
@@ -23,6 +27,19 @@
       "favicon": "./assets/images/favicon.png"
     },
     "plugins": [
+      "@react-native-firebase/app",
+      [
+        "expo-build-properties",
+        {
+          "ios":{
+            "useFrameworks": "static",
+            "googleServicesFile": "./GoogleService-Info.plist"
+          },
+          "android": {
+            "googleServicesFile": "google-services.json"
+          }
+        }
+      ],
       "expo-router",
       [
         "expo-splash-screen",
